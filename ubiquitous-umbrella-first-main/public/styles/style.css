@@ -1,0 +1,25 @@
+.disabled{
+
+  pointer-events: none;  
+  /* ^ prevents disabled elements from appearing interactable */
+  
+}
+
+.navbar .in .nav li {
+  display: block;
+  float: none;
+  width:100%;
+}
+
+/* following streamlines cards */
+
+
+.card-title{
+  margin-left:0.3cm;
+  margin-top:0.2cm;
+}
+
+.card-subtitle{
+  margin-left: 0.4cm;
+  margin-top: 0.3cm;
+}
