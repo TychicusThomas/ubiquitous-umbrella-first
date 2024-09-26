@@ -8,7 +8,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 // const uri = `mongodb+srv://barry:${process.env.MONGO_PWD}@cluster0.5abxx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`; 
 const uri = `mongodb+srv://Ty:${process.env.MONGO_PWD}@cluster0.y0ctk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
-// const uri = `mongodb+srv://Ty:Tychicus1@cluster0.y0ctk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 
 
