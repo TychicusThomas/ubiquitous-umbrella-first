@@ -6,7 +6,8 @@ const { urlencoded } = require('body-parser')
 const { ObjectId } = require('mongodb')
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const PORT = process.env.PORT || 5500;
-const uri = `mongodb+srv://barry:${process.env.MONGO_PWD}@cluster0.5abxx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`; 
+// const uri = `mongodb+srv://barry:${process.env.MONGO_PWD}@cluster0.5abxx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`; 
+const uri = `mongodb+srv://barry:cat@cluster0.y0ctk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
@@ -50,9 +51,9 @@ app.get('/read', async (req,res)=>{
   console.log('connected?');
   // Send a ping to confirm a successful connection
   
-  let result = await client.db("barrys-db").collection("whatever-collection")
-    .find({}).toArray(); 
+  let result = await client.db("ty-database").collection("ty-collection").find({}).toArray(); 
   console.log(result); 
+
 
   res.render('read', {
     postData : result
