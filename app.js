@@ -33,7 +33,7 @@ app.get('/', async function (req, res) {
   // res.send('Hello Node from Ex on local dev box')
   //res.sendFile('index.html');
 
-  console.log('in /read');
+  console.log('in /');
   await client.connect();
   
   console.log('connected?');
