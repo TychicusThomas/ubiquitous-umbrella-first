@@ -29,9 +29,25 @@ const client = new MongoClient(uri, {
 // function whateverNameOfIt (params) {}
 // ()=>{}
 
-app.get('/', function (req, res) {
+app.get('/', async function (req, res) {
   // res.send('Hello Node from Ex on local dev box')
-  res.sendFile('index.html');
+  //res.sendFile('index.html');
+
+  console.log('in /read');
+  await client.connect();
+  
+  console.log('connected?');
+  // Send a ping to confirm a successful connection
+  
+  let result = await client.db("ty-database").collection("ty-collection").find({}).toArray(); 
+  console.log(result); 
+
+
+  res.render('index', {
+    postData : result
+  });
+
+  
 })
 
 app.get('/ejs', (req,res)=>{
@@ -66,7 +82,7 @@ app.post('/insert', async (req,res)=> {
   console.log('in /insert');
   
   console.log('request', req.body);
-  console.log('request', req.body.newPost);
+  //console.log('request', req.body.newPost);
 
   //connect to db,
   await client.connect();
@@ -74,7 +90,7 @@ app.post('/insert', async (req,res)=> {
   await client.db("barrys-db").collection("whatever-collection").insertOne({ post: req.body.newPost});
   // await client.db("barrys-db").collection("whatever-collection").insertOne({ iJustMadeThisUp: 'hardcoded new key '});  
   //insert into it
-  res.redirect('read');
+  res.redirect('index');
 
 }); 
 
