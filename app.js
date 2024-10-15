@@ -105,7 +105,7 @@ app.post('/update/:id', async (req,res)=>{
 )
 .then(result => {
   console.log(result); 
-  res.redirect('/read');
+  res.redirect('/');
 })
 }); 
 
