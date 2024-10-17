@@ -39,7 +39,7 @@ app.get('/', async function (req, res) {
   console.log('connected?');
   // Send a ping to confirm a successful connection
   
-  let result = await client.db("ty-database").collection("ty-collection").find({}).toArray(); 
+  let result = await client.db("barrys-db").collection("whatever-collection").find({}).toArray(); 
   console.log(result); 
 
 
@@ -50,15 +50,6 @@ app.get('/', async function (req, res) {
   
 })
 
-app.get('/ejs', (req,res)=>{
-
-  res.render('index', {
-    myServerVariable : "something from server"
-  });
-
-  //can you get content from client...to console? 
-})
-
 app.get('/read', async (req,res)=>{
 
   console.log('in /read');
@@ -67,7 +58,7 @@ app.get('/read', async (req,res)=>{
   console.log('connected?');
   // Send a ping to confirm a successful connection
   
-  let result = await client.db("ty-database").collection("ty-collection").find({}).toArray(); 
+  let result = await client.db("barrys-db").collection("whatever-collection").find({}).toArray(); 
   console.log(result); 
 
 
@@ -96,12 +87,13 @@ app.post('/insert', async (req,res)=> {
 
 app.post('/update/:id', async (req,res)=>{
 
-  console.log("req.parms.id: ", req.params.id)
+  console.log("req.parms.id: ", req.params.id);
+  console.log("req.body: ", req.body);
 
   client.connect; 
   const collection = client.db("barrys-db").collection("whatever-collection");
   let result = await collection.findOneAndUpdate( 
-  {"_id": new ObjectId(req.params.id)}, { $set: {"post": "NEW POST" } }
+  {"_id": new ObjectId(req.params.id)}, { $set: {"post": req.body.updatedPost } }
 )
 .then(result => {
   console.log(result); 
@@ -115,12 +107,11 @@ app.post('/delete/:id', async (req,res)=>{
 
   client.connect; 
   const collection = client.db("barrys-db").collection("whatever-collection");
-  let result = await collection.findOneAndDelete( 
-  {"_id": new ObjectId(req.params.id)})
+  let result = await collection.findOneAndDelete( {"_id": new ObjectId(req.params.id)})
 
 .then(result => {
-  console.log(result); 
-  res.redirect('/read');
+  console.log("result: ", result); 
+  res.redirect('/');
 })
 
   //insert into it

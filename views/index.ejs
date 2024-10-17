@@ -1,14 +1,4 @@
-<h3> my blog posts (click delete to display your name at the top of the list 'secret access'!)</h3> 
- <% for (var i=0; i< postData.length; i++ ) { %>
-  <form method="POST" action="/update/<%= postData[i]._id %>" style="display: inline-block">  
-    <%= postData[i].post %> 
-    <input type="submit" value="update"> 
-  </form>
-  <form method="POST" action="/delete/<%= postData[i]._id %>" style="display: inline-block">  
-    <input type="submit" value="delete"> 
-  </form>
-  <br/>
-<% } %>
+
 
 
 <!DOCTYPE html>
@@ -33,6 +23,20 @@
 
 </head>
 <body>
+
+  <div class="container">
+<h3> my blog posts (click delete to display your name at the top of the list 'secret access'!)</h3> 
+ <% for (var i=0; i< postData.length; i++ ) { %>
+  <form method="POST" action="/update/<%= postData[i]._id %>" style="display: inline-block">  
+    <input id="updatedPost" name="updatedPost" value="<%= postData[i].post %>">
+    <input type="submit" value="update"> 
+  </form>
+  <form method="POST" action="/delete/<%= postData[i]._id %>" style="display: inline-block">  
+    <input type="submit" value="delete"> 
+  </form>
+  <br/>
+<% } %>
+</div>
 
   <!-- navigation -->
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
