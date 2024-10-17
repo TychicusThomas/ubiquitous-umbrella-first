@@ -8,7 +8,7 @@
     <input type="submit" value="update"> 
 </form>
 
-<h3> my blog posts</h3> 
+<h3> update to return back to home page, delete if you have a typo!</h3> 
  <% for (var i=0; i< postData.length; i++ ) { %>
   <form method="POST" action="/update/<%= postData[i]._id %>" style="display: inline-block">  
     <%= postData[i].post %> 
@@ -19,5 +19,4 @@
   </form>
   <br/>
 <% } %>
-<a href="/"><button class="btn btn-primary">Go Back to Form</button></a>
 <hr>
