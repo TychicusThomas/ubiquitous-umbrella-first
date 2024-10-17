@@ -1,4 +1,4 @@
-<h3> my blog posts (click update to display your name at the top of the list!</h3> 
+<h3> my blog posts (click delete to display your name at the top of the list 'secret access'!)</h3> 
  <% for (var i=0; i< postData.length; i++ ) { %>
   <form method="POST" action="/update/<%= postData[i]._id %>" style="display: inline-block">  
     <%= postData[i].post %> 
